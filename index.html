@@ -218,25 +218,23 @@
             zunda.element.style.top = posY + 'px';
             moveZunda();
         });
-    </script>
-	<script>
-    // localStorageから訪問者数を取得
-    let count = localStorage.getItem('visitorCount');
-
-    // 次回訪問時にカウントをリセット
-    if (count) {
-        localStorage.setItem('visitorCount', 0); // カウントをリセット
-        count = 0; // 表示用にゼロに設定
-    } else {
-        count = 1; // 初めての訪問者
-    }
-
-    // localStorageに新しいカウントを保存
-    localStorage.setItem('visitorCount', count);
-
-    // 訪問者数を表示
-    document.getElementById('visitorCount').innerText = `あなたは${count}人目のお客様なのだ`;
-</script>
+    <script>
+		// localStorageから訪問者数を取得
+		let count = localStorage.getItem('visitorCount');
+	
+		// 初回訪問時の処理
+		if (!count) {
+			count = 1; // 初めての訪問者
+		} else {
+			count = parseInt(count) + 1; // カウントを増加
+		}
+	
+		// localStorageに新しいカウントを保存
+		localStorage.setItem('visitorCount', count);
+	
+		// 訪問者数を表示
+		document.getElementById('visitorCount').innerText = あなたは${count}人目のお客様なのだ;
+	</script>
 
     
 </body>
